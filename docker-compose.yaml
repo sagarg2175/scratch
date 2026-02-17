@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sagar2175
+      POSTGRES_DB: scratchdb
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql   
+    ports:
+      - "5433:5432"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      DBSOURCE: "postgresql://postgres:sagar2175@postgres:5432/scratchdb?sslmode=disable"
+
+volumes:
+  dbdata:

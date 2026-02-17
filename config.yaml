@@ -1,0 +1,24 @@
+AppName: Sagar-Practice
+AppEnv: development
+
+HttpUrl : 127.0.0.1
+HttpPort: 8080
+HttpAllowedOrigins: "*"
+loglevl: Debug
+
+# DBConnection: postgres
+# DBHost: localhost
+# DBPort: 5432
+# DBdatabase: scratch
+# DBUserName: postgres
+# DBPassword: sagar2175
+
+DBHost: postgres
+DBPort: 5432
+DBdatabase: scratchdb
+DBUserName: postgres
+DBPassword: sagar2175
+
+
+JWTSecretKey: "this_is_a_super_secret_key_for_jwt_token_123456"
+JWTTokenDuration: "1h"
